@@ -1,16 +1,19 @@
-let input = "125.6a";
+let input = "215.677aa7a";
 let parse = "";
-let stringPoint = true
-
-if (!Number(input[0])) {
+let indx = true;
+if (isNaN(input[0]) && input[0] !== ".") {
   console.log(NaN);
 } else {
-  for (i = 0; i < input.length; i++) {
-    if (isNaN(input[i])) {
-      
-    } else {
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === "." && indx) {
       parse += input[i];
+      indx = false;
+      continue;
     }
+    if (isNaN(input[i])) {
+      break;
+    }
+    parse += input[i];
   }
+  console.log(Number(parse));
 }
-console.log(parse);
