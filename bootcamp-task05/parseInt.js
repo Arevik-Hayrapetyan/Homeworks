@@ -1,14 +1,19 @@
-let input = "125a";
+let input = "a215.6aaa";
 let parse = "";
-if (!Number(input[0])) {
+let indx = true;
+if (isNaN(input[0]) && input[0] !== ".") {
   console.log(NaN);
 } else {
-  for (i = 0; i < input.length; i++) {
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === "." && indx) {
+      parse += input[i];
+      indx = false;
+      continue;
+    }
     if (isNaN(input[i])) {
       break;
-    } else {
-      parse += input[i];
     }
+    parse += input[i];
   }
+  console.log(Number(parse));
 }
-console.log(parse);
