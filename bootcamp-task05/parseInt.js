@@ -1,6 +1,5 @@
 let input = "125.6777a";
 let parse = "";
-let stringPoint = true;
 
 if (!Number(input[0])) {
   console.log(NaN);
