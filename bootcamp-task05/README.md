@@ -1,6 +1,6 @@
 # DESCRIPTION
 ## ParseFloat exercise explanation
-- Writing logic that implements parseInt (in parseFloat.js file). Writing code with this steps.
+- Writing logic that implements parseFloat (in parseFloat.js file). Writing code with this steps.
 1. In first step we are declaring input variable (the input variable is user's input)
 2. Declaring parse variable for adding them value.
 3. In "if loop" we are checking 2 condition:  when our input[0] is not a number and is not equal "." ==> when there are this 2 condition the output is "NaN".
