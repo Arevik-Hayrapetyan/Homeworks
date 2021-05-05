@@ -11,4 +11,4 @@ function removeSecondString(sentence, letter) {
   }
   return newString
 }
-console.log(removeSecondString("This is some text", "is"));
+console.log(removeSecondString("This is some text.", "is"));

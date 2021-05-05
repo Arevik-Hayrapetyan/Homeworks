@@ -1,4 +1,4 @@
-let input = "215.677aa7a";
+let input = "125.677aa7a";
 let parse = "";
 let indx = true;
 if (isNaN(input[0]) && input[0] !== ".") {

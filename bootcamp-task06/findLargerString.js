@@ -1,4 +1,4 @@
-function findLargerThenGiven(input) {
+function findLargerString(input) {
   input = input.split(" ");
   let largerString = input[0];
   for (let i = 0; i < input.length; i++) {
@@ -8,4 +8,4 @@ function findLargerThenGiven(input) {
   }
   return largerString;
 }
-console.log(findLargerThenGiven("A revolution without dancing is a revolution not worth having."));
+console.log(findLargerString("A revolution without dancing is a revolution not worth having."));
