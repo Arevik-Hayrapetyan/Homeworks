@@ -19,4 +19,4 @@ function findEvenNum(num1, num2) {
   }
   return str.slice(0, str.length - 2);
 }
-console.log(findEvenNum(119, 442));
+console.log(findEvenNum(118, 442));

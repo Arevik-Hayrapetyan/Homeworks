@@ -1,5 +1,5 @@
 function findSumNum(elem1, elem2) {
-  let array = [4, 5, 10, 8, 1];
+  let array = [3, 5, 10, 8, 1];
   if (elem1 > array.length - 1 || elem2 > array.length - 1) {
     return "Error";
   }

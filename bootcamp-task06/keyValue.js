@@ -10,7 +10,7 @@ function swapKeyValue (obj){
     }
     return res
 }
-console.log(swapKeyValue({ a: "1", b: "2", c: "2", d: "2" }))
+console.log(swapKeyValue({ a: "5", b: "2", c: "2", d: "2" }))
 
 
 
