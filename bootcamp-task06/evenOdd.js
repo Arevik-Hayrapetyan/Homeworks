@@ -1,4 +1,4 @@
-function oddEven(array) {
+function sortOddEven(array) {
   let newArray = [[], []];
   for (i = 0; i < array.length; i++) {
     if (array[i] === 0) {
@@ -12,4 +12,4 @@ function oddEven(array) {
   }
   return newArray;
 }
-console.log(oddEven([45, 12, 3, 6, 17, 0]));
+console.log(sortOddEven([45, 12, 3, 6, 17, 0]));
