@@ -7,4 +7,4 @@ function findLargerNum(number, array) {
   }
   return arraySecond;
 }
-console.log(findLargerNum(16, [45, 18, 100]));
+console.log(findLargerNum(20, [45, 18, 100]));
