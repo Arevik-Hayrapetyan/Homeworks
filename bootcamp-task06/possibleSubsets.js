@@ -16,4 +16,4 @@ function possibleSubsets(array) {
   }
   return newArray;
 }
-console.log(possibleSubsets([2, 2, 5, 6, 7, 8, 94]));
+console.log(possibleSubsets([1, 2, 2, 5, 6, 7, 8, 94]));
