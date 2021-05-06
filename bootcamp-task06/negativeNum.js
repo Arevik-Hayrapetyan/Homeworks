@@ -27,4 +27,4 @@ function findLargerNegativeNum(array) {
   return Math.abs(maxValue);
 }
 
-console.log(findLargerNegativeNum([[-10, 44], [-4, 15]]));
+console.log(findLargerNegativeNum([[-10, 44], [-5, 15]]));
