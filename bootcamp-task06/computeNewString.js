@@ -8,4 +8,4 @@ function computeNewString(input) {
   return result + input.slice(input.length - length);
 }
 
-console.log(computeNewString("abcdfgaa"));
+console.log(computeNewString("abcdfgaaff"));
