@@ -15,4 +15,4 @@ function sumNum(input) {
   }
   return sum;
 }
-console.log(sumNum("sadvsdv125avsd4"));
+console.log(sumNum("advsdv125avsd4"));
