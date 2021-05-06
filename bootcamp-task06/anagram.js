@@ -11,4 +11,4 @@ function selectCorrectSublist(input, array) {
 }
 
 console.log(
-  selectCorrectSublist("listen", ["enliasts","google","inlets","banana",]));
+  selectCorrectSublist("listen", ["enliasts","google","inlets","banan",]));
