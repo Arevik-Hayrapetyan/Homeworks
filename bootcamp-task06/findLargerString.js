@@ -8,4 +8,4 @@ function findLargerString(input) {
   }
   return largerString;
 }
-console.log(findLargerString("A revolution without dancing is a revolution not worth having:"));
+console.log(findLargerString("Revolution without dancing is a revolution not worth having:"));
