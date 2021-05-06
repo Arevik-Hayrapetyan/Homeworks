@@ -1,16 +1,12 @@
-
-function swapKeyValue (obj){
-    let res = {}
-    for(let key in obj) {
-        if(!obj[key] in res){
-            res[obj[key]] = key
-        } else{
-            res[obj[key]] = [...res[obj[key]], key]
-        }
+function swapKeyValue(obj) {
+  let res = {};
+  for (let key in obj) {
+    if (!obj[key] in res) {
+      res[obj[key]] = key;
+    } else {
+      res[obj[key]] = [...res[obj[key]], key];
     }
-    return res
+  }
+  return res;
 }
-console.log(swapKeyValue({ a: "5", b: "2", c: "2", d: "2" }))
-
-
-
+console.log(swapKeyValue({ a: "5", b: "2", c: "2", d: "2" }));
