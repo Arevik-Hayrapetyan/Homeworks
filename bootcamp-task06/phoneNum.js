@@ -15,6 +15,6 @@ function checkNumber(number) {
   return "It is bad phone-number"
 }
 
-console.log(checkNumber("+54789567"));
+console.log(checkNumber("+154789567"));
 
     
