@@ -12,4 +12,4 @@ function sortOddEven(array) {
   }
   return newArray;
 }
-console.log(sortOddEven([45, 13, 3, 6, 17, 0]));
+console.log(sortOddEven([45, 13, 3, 6, 17]));
