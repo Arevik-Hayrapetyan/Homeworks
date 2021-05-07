@@ -39,3 +39,8 @@ sequence on a single line.
 12. Write a function, which receives an array as an argument which elements arrays of numbers. Find
 product of biggest negative number of each array. If there is not any negative number, ignore that array.
 Check that items of the given array are arrays.
+14. Given an object. Invert it (keys become values and values become keys). If there is more than key forthat
+given value create an array.
+15. Write a JavaScript function to get all possible subsets of length 3 of the given array. Assume that all
+elements in the array are unique.
+
