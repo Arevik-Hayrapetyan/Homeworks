@@ -1,30 +1,31 @@
-function findLargerNegativeNum(array) {
-  let sumArray = [];
-  let a = 0;
+function findNegativeNum(array) {
+  let multiplier = 1;
   for (let i = 0; i < array.length; i++) {
-    if (array[i].length === undefined) {
+    const item = array[i];
+    if (typeof array[i] !== "object") {
       return "Invalid argument";
-    }
-
-    for (let j = 0; j < array[i].length; j++) {
-      if (array[i][j] < 0) {
-        a += array[i][j];
-      }
-    }
-    sumArray.push(a);
-    a = 0;
-  }
-  if (sumArray.length === 0) {
-    return "No negatives";
-  }
-  let maxValue = -Infinity;
-
-  for (let i = 0; i < sumArray.length; i++) {
-    if (sumArray[i] < 0 && sumArray[i] > maxValue) {
-      maxValue = sumArray[i];
+    } else {
+      multiplier = multiplier * negativeNum(item);
     }
   }
-  return Math.abs(maxValue);
+  if (multiplier === 1) {
+    return "No negative numbers";
+  } else {
+    return multiplier;
+  }
 }
-
-console.log(findLargerNegativeNum([[-10, 44], [-5, 15]]));
+console.log(findNegativeNum([[5, -3],[2, 3, -5],]));
+function negativeNum(array) {
+  let negativeArray = [];
+  let max = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < 0) {
+      negativeArray.push(array[i]);
+    }
+  }
+  if (!negativeArray.length) {
+    return 1;
+  }
+  max = Math.max(...negativeArray);
+  return max;
+}
