@@ -1,7 +1,7 @@
-let input = "125.6777a";
+let input = "0.6777a";
 let parse = "";
 
-if (!Number(input[0])) {
+if (isNaN(input[0])) {
   console.log(NaN);
 } else {
   for (i = 0; i < input.length; i++) {
@@ -13,3 +13,4 @@ if (!Number(input[0])) {
   }
 }
 console.log(parse);
+
