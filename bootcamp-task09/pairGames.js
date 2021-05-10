@@ -32,9 +32,7 @@ function winner() {
       if (((gameArray[j][0] === gameArray[j][1]) === gameArray[j][2]) === "X") {
         return "Player 1 won";
       } else if (
-        ((gameArray[j][0] === gameArray[j][1]) === gameArray[j][2]) ===
-        "O"
-      ) {
+        ((gameArray[j][0] === gameArray[j][1]) === gameArray[j][2]) ==="O") {
         return "Player 2 won";
       } else {
         return "Draw";
@@ -44,18 +42,18 @@ function winner() {
       if (((gameArray[0][j] === gameArray[1][j]) === gameArray[2][j]) === "X") {
         return "Player 1 won";
       } else if (
-        ((gameArray[0][j] === gameArray[1][j]) === gameArray[2][j]) ===
-        "O"
-      ) {
+        ((gameArray[0][j] === gameArray[1][j]) === gameArray[2][j]) === "O") {
         return "Player 2 won";
       } else {
         return "Draw";
       }
     }
     for (let j = 0; j < gameArray[i].length; j--) {
-      if (((gameArray[j][0] === gameArray[1][j + 1]) === gameArray[2][j + 2]) ==="X") {
+      if (
+        ((gameArray[j][0] === gameArray[1][j + 1]) === gameArray[2][j + 2]) === "X") {
         return "Player 1 won";
-      } else if (((gameArray[j][0] === gameArray[1][j + 1]) === gameArray[2][j + 2]) ==="O") {
+      } else if (
+        ((gameArray[j][0] === gameArray[1][j + 1]) === gameArray[2][j + 2]) === "O") {
         return "Player 2 won";
       } else {
         return "Draw";
