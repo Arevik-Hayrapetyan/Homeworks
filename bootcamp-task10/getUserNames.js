@@ -16,5 +16,4 @@ const users = [
   },
 ];
 console.log(getUserNames(users, (el) => el.username));
-console.log(getUserNames(users, (el) => el.username.length))
-
+console.log(getUserNames(users, (el) => el.username.length));

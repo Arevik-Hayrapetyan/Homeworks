@@ -1,13 +1,12 @@
 function spliceFunction(array, start, count, ...add) {
-    
   if (start < 0) {
     start = array.length + start;
   }
-  let end = count + start
+  let end = count + start;
   let spliceArray = [];
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
-    if (i > start - 1 && i < end ) {
+    if (i > start - 1 && i < end) {
       spliceArray.push(array[i]);
     } else if (i === end) {
       newArray.push(...add);

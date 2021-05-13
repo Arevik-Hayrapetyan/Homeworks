@@ -4,10 +4,6 @@ function someFunction(array, fn) {
       return true;
     }
   }
-  return false
+  return false;
 }
 console.log(someFunction([1, 2, 4, 7], (el) => el > 4));
-
-
-
-
