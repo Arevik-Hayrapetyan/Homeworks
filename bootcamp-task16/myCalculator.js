@@ -4,7 +4,7 @@ myCalculator.prototype.add = function (firstNum, secondNum) {
   return addNumbers;
 };
 myCalculator.prototype.subtract = function (firstNum, secondNum) {
-  let subtractNumbers = firstNum + secondNum;
+  let subtractNumbers = firstNum - secondNum;
   return subtractNumbers;
 };
 myCalculator.prototype.multiply = function (firstNum, secondNum) {
