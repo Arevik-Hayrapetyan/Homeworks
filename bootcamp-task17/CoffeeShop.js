@@ -2,7 +2,6 @@ function CoffeeShop(name) {
   this.name = name;
   this.menu = [];
   this.orders = [];
-  this.indx = 0;
 }
 CoffeeShop.prototype.dailyMenu = function (foodsDrinks) {
   this.menu.push(...foodsDrinks);
