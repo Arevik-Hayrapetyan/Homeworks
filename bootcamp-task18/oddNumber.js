@@ -10,4 +10,4 @@ function recFunc(number) {
     return recFunc(newNumber);
   }
 }
-console.log(recFunc(723));
+console.log(recFunc(1723));
