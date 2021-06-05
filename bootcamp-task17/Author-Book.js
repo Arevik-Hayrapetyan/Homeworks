@@ -4,18 +4,17 @@ class Author {
     this._email = email;
     this._gender = gender;
   }
+  get name() {
+    return `Author name is: ${this._name}`;
+  }
   set name(name) {
-    if (!isNaN(this._name)) {
-      throw new Error("Name cant contain numnber");
-    } else {
-      this._name = name;
+    if (typeof name === "string") {
+      return this._name;
     }
   }
-  get name() {
-    return this._name;
-  }
+
   get email() {
-    return this._email;
+    return `Author's email is: ${this._email}`;
   }
   get gender() {
     let gender = this._gender.toLowerCase();
@@ -29,7 +28,7 @@ class Author {
     }
   }
 }
-let author1 = new Author("J. K. Rowling", "abc@gmail.com", "fEmaLe");
+let author1 = new Author("R.A", "abc@gmail.com", "fEmaLe");
 console.log(author1.gender); // female
 console.log(author1.name); // J. K. Rowling
 console.log(author1.toString()); // Ms. J. K. Rowling
@@ -41,23 +40,35 @@ class Book {
     this._price = price;
     this._quantity = quantity;
   }
-  get title(){
-      return this._title
+  get title() {
+    return `This is book title: ${this._title}`;
   }
-  get author(){
-      return this._author
+  get author() {
+    return `Author is: ${this._author}`;
   }
-  get price(){
-      return this._price
+  get price() {
+    return this._price;
   }
-  get quantity(){
-      return this._quantity
+  set price(value) {
+    if (typeof value === "number") {
+      this._price = value;
+    }
   }
-  getProfit(){
-      let profit = this._price * this._quantity
-      return profit
+
+  get quantity() {
+    return `Book quantity is: ${this._quantity}`;
   }
-  toString(){
-      return `${this._author} ${this._title}`
+  getProfit() {
+    let profit = this._price * this._quantity;
+    return profit;
+  }
+  toString() {
+    return `
+    Author name:: ${this._author} 
+    Book title:: ${this._title}`;
   }
 }
+const book = new Book("Anlreli zangakatun", "Paruyr Sevak", 5000, 50);
+console.log(book.toString());
+book.price = "aaaa";
+console.log(book.price);
