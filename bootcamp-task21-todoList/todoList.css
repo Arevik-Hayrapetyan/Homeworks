@@ -1,0 +1,72 @@
+html,
+body {
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(233, 230, 230);
+  min-height: 100vh;
+}
+header {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
+/* .add-element {
+  justify-content: space-between;
+} */
+.container {
+  justify-content: center;
+  /* align-items: center; */
+  display: flex;
+}
+.to-doInput{
+    font-size: 2rem;
+}
+
+.todoButton {
+  font-size: 1.5rem;
+  background: white;
+  cursor: pointer;
+}
+.todo-container {
+ 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.todoList {
+  background: white;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  width: 100%;
+}
+div .todo {
+  
+  background: #e9e6e6;
+  color: black;
+  font-size: 1.4rem;
+  text-align: center;
+  
+  
+  
+
+}
+.todo input {
+  padding: 10px 40px;
+  background-color: white;
+  font-size: 15px;
+
+}
+.todo-element{
+  
+}
+.edit-button{
+  padding: 10px 10px;
+}
+.check-button{
+  padding: 10px 10px;
+}
+.trash-button{
+  padding: 10px 10px;
+}
