@@ -1,0 +1,41 @@
+.container {
+  background-color: rgb(200, 219, 248);
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+.container-navbar {
+  background-color: rgb(108, 177, 209);
+ 
+  display: flex;
+}
+.container-logo {
+  width: 500px;
+  height: 50px;
+
+  font-size: 40px;
+  color: white;
+}
+.fa-bars {
+   font-size: 40px;
+   color: white;
+   cursor: pointer;
+}
+.text{
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.menu-links a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    
+   
+}
+.menu-links{
+    display: none;
+}
