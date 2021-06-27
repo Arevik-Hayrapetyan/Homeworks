@@ -25,7 +25,9 @@ function addTodo(event) {
   editButton.addEventListener("click", editCheck);
   editButton.innerHTML = '<i class="fas fa-edit"></i>';
   editButton.classList.add("edit-button");
-  newDiv.appendChild(editButton);
+  newDiv.appendChild(
+    
+  );
   // Creating check Button
   const checkButton = document.createElement("button");
   checkButton.addEventListener("click", doneCheck);

@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: aliceblue;
+}
+.header {
+  width: 90%;
+  margin-left: 5%;
+  height: 500px;
+  background-image: url(./images/picture2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header-fon {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  padding: 150px 5% 0 10%;
+  background-color: rgb(51 54 58 / 65%);
+}
+.header-fon > h1 > span {
+  border-bottom: 1px #fff solid;
+}
+.header-fon h1 {
+  color: white;
+}
+.header-fon p {
+  color: white;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+.background2 {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70px;
+}
+.item1 {
+  width: 30%;
+}
+.item2 {
+  width: 70%;
+  padding-left: 80px;
+}
+.item2 h5 {
+  color: ROSYBROWN;
+  font-style: italic;
+  font-size: 20px;
+  font-size: 20px;
+  padding: 20px;
+  text-align: justify;
+}
+.item2 h4 {
+  font-size: 40px;
+  font-size: 25px;
+  color: grey;
+  padding: 20px;
+  padding-top: 5px;
+}
+.item2 p {
+  font-size: 20px;
+  font-style: italic;
+  color: grey;
+  padding: 20px;
+  text-align: justify;
+}
+
+.award {
+  background-image: url(./images/BACKGROUND4.jpg);
+  width: 90%;
+  margin-left: 5%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 40px;
+}
+.award-fon {
+  width: 100%;
+  height: 100%;
+  text-align: right;
+
+  font-size: 28px;
+  padding: 150px 1% 0 50%;
+
+  background-color: rgb(51 54 58 / 65%);
+}
+.award-fon h5 {
+  color: ROSYBROWN;
+  font-style: italic;
+  font-size: 16px;
+  text-align: justify;
+  padding-left: 355px;
+  padding-bottom: 10px;
+}
+.award-fon h4 {
+  padding-left: 75px;
+  padding-right: 20px;
+  font-size: 25px;
+  color: #ead5d5;
+  padding-bottom: 10px;
+}
+.award-fon p {
+  font-size: 25px;
+  font-style: italic;
+  color: white;
+  text-align: justify;
+  padding-left: 170px;
+  padding-right: 20px;
+}
+.journey {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70px;
+}
+.journey-text {
+  width: 70%;
+  padding-left: 80px;
+  text-align: justify;
+}
+.journey-text h5 {
+  color: ROSYBROWN;
+  font-style: italic;
+  font-size: 20px;
+  padding: 11px;
+  text-align: justify;
+  padding-left: 0px;
+}
+.journey-text h4 {
+  color: grey;
+  padding-bottom: 10px;
+  font-size: 23px;
+}
+.journey-text p {
+  font-size: 19px;
+  font-style: italic;
+  color: grey;
+  padding: 20px;
+  text-align: justify
+}
