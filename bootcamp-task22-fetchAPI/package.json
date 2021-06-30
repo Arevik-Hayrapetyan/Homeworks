@@ -16,6 +16,7 @@
   "author": "Arevik Hayrapetyan",
   "license": "MIT",
   "dependencies": {
+    "commitizen": "^4.2.4",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -23,7 +24,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   }
 }
