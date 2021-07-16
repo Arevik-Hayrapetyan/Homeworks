@@ -1,75 +1,88 @@
 import React from "react";
+import {
+  setLocalStoreKeyValue,
+  getLocalStoreKey,
+} from "../helpers/localStorage";
 
-export class Calculator extends React.Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentNum: 0,
-      maxNum: 100,
-      minNum: 0,
+      maxNum:
+        typeof getLocalStoreKey("maxNum") !== "undefined"
+          ? Number(getLocalStoreKey("maxNum"))
+          : 0,
+      minNum:
+        typeof getLocalStoreKey("minNum") !== "undefined"
+          ? Number(getLocalStoreKey("minNum"))
+          : 0,
       step: 1,
     };
   }
 
-  
-  // Inputs
-  handleStep = (event) => {
-    console.log("step")
+  // Inputs values from Local Storage
+  getStepfromLocal = (event) => {
+    setLocalStoreKeyValue("step", event.target.value);
     this.setState({ step: event.target.value });
   };
 
-  handleCurrent = (event) => {
+  getCurrentfromLocal = (event) => {
+    setLocalStoreKeyValue("currentNum", event.target.value);
     this.setState({ currentNum: event.target.value });
   };
 
-  handleMin = (event) => {
+  getMinfromLocal = (event) => {
+    setLocalStoreKeyValue("minNum", event.target.value);
     this.setState({ minNum: event.target.value });
   };
 
-  handleMax = (event) => {
+  getMaxfromLocal = (event) => {
+    setLocalStoreKeyValue("maxNum", event.target.value);
     this.setState({ maxNum: event.target.value });
   };
 
   //increase-decrease-reset buttons clicks
+
   increaseClick = () => {
-    console.log("aaaaaa")
     if (this.state.currentNum < this.state.maxNum) {
       this.setState((prevState) => ({
-        currentNum: prevState.currentNum + Number(prevState.step),
+        currentNum: Number(prevState.currentNum) + Number(prevState.step),
       }));
-    } else {
-      return;
     }
   };
 
   decreaseClick = () => {
-    console.log("bbbbbbb")
     if (this.state.currentNum > this.state.minNum) {
       this.setState((prevState) => ({
         currentNum: prevState.currentNum - prevState.step,
       }));
-    } else {
-      return;
     }
   };
 
   resetClick = () => {
-    console.log("ccccc")
-    this.setState({ currentNum: 0 });
+    getLocalStoreKey("maxNum", 0);
+    getLocalStoreKey("minNum", 0);
+    getLocalStoreKey("step", 0);
+    this.setState({
+      currentNum: 0,
+      maxNum: 0,
+      minNum: 0,
+      step: 0,
+    });
   };
-
 
   render() {
     return (
       <div>
         <label>
-            Current Number:
-            <input
-              type="text"
-              value={this.state.currentNum}
-              onChange={this.handleCurrent}
-            />
-          </label>
+          Current Number:
+          <input
+            type="text"
+            value={this.state.currentNum}
+            onChange={this.getCurrentfromLocal}
+          />
+        </label>
 
         <div className="inputs">
           <label>
@@ -77,17 +90,16 @@ export class Calculator extends React.Component {
             <input
               type="text"
               value={this.state.minNum}
-              onChange={this.handleMin}
+              onChange={this.getMinfromLocal}
             />
           </label>
-
 
           <label>
             MaxValue:
             <input
               type="text"
               value={this.state.maxNum}
-              onChange={this.handleMax}
+              onChange={this.getMaxfromLocal}
             />
           </label>
 
@@ -96,7 +108,7 @@ export class Calculator extends React.Component {
             <input
               type="text"
               value={this.state.value}
-              onChange={this.handleStep}
+              onChange={this.getStepfromLocal}
             />
           </label>
         </div>
@@ -110,3 +122,5 @@ export class Calculator extends React.Component {
     );
   }
 }
+
+export default Calculator;
