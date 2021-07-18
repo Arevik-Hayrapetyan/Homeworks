@@ -2,7 +2,9 @@ import React from "react";
 import {
   setLocalStoreKeyValue,
   getLocalStoreKey,
-} from "../helpers/localStorage";
+} from "../../helpers/localStorage";
+import Input from "../Input/Inputs";
+import Button from "../Button/Button";
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -17,7 +19,12 @@ class Calculator extends React.Component {
         typeof getLocalStoreKey("minNum") !== "undefined"
           ? Number(getLocalStoreKey("minNum"))
           : 0,
-      step: 1,
+      step:
+        typeof getLocalStoreKey("step") !== "undefined"
+          ? Number(getLocalStoreKey("step"))
+          : 0,
+      disabledDec: false,
+      disabledInc: false,
     };
   }
 
@@ -44,7 +51,7 @@ class Calculator extends React.Component {
 
   //increase-decrease-reset buttons clicks
 
-  increaseClick = () => {
+  handleIncrease = () => {
     if (this.state.currentNum < this.state.maxNum) {
       this.setState((prevState) => ({
         currentNum: Number(prevState.currentNum) + Number(prevState.step),
@@ -52,15 +59,15 @@ class Calculator extends React.Component {
     }
   };
 
-  decreaseClick = () => {
+  handleDecrease = () => {
     if (this.state.currentNum > this.state.minNum) {
       this.setState((prevState) => ({
-        currentNum: prevState.currentNum - prevState.step,
+        currentNum: Number(prevState.currentNum) - Number(prevState.step),
       }));
     }
   };
 
-  resetClick = () => {
+  handleReset = () => {
     getLocalStoreKey("maxNum", 0);
     getLocalStoreKey("minNum", 0);
     getLocalStoreKey("step", 0);
@@ -68,45 +75,61 @@ class Calculator extends React.Component {
       currentNum: 0,
       maxNum: 0,
       minNum: 0,
-      step: 0,
+      step: 1,
     });
   };
 
   render() {
+    let disabledDec;
+    let disabledInc;
+
+    if (
+      this.currentNum <= 0 ||
+      this.state.currentNum - Number(getLocalStoreKey("step")) <
+        Number(getLocalStoreKey("minNum"))
+    ) {
+      disabledDec = true;
+    } else {
+      disabledDec = false;
+    }
+
+    if (this.state.currentNum + this.state.step > getLocalStoreKey("maxNum")) {
+      disabledInc = true;
+    } else {
+      disabledInc = false;
+    }
+
     return (
       <div>
-        <label>
-          Current Number:
-          <input
-            type="text"
-            value={this.state.currentNum}
-            onChange={this.getCurrentfromLocal}
-          />
-        </label>
-
         <div className="inputs">
           <label>
+            Current Number:
+            <Input
+              type="number"
+              value={this.state.currentNum}
+              onChange={this.getCurrentfromLocal}
+            />
+          </label>
+          <label>
             MinValue:
-            <input
-              type="text"
+            <Input
+              type="number"
               value={this.state.minNum}
               onChange={this.getMinfromLocal}
             />
           </label>
-
           <label>
             MaxValue:
-            <input
-              type="text"
+            <Input
+              type="number"
               value={this.state.maxNum}
               onChange={this.getMaxfromLocal}
             />
           </label>
-
           <label>
             Step:
-            <input
-              type="text"
+            <Input
+              type="number"
               value={this.state.value}
               onChange={this.getStepfromLocal}
             />
@@ -114,9 +137,19 @@ class Calculator extends React.Component {
         </div>
 
         <div className="buttons">
-          <button onClick={this.increaseClick}>Increase</button>
-          <button onClick={this.decreaseClick}>Decrease</button>
-          <button onClick={this.resetClick}>Reset</button>
+          <Button
+            onClick={this.handleIncrease}
+            disabled={disabledDec}
+            id="increase"
+          />
+
+          <Button
+            onClick={this.handleDecrease}
+            disabled={disabledInc}
+            id="decrease"
+          />
+
+          <Button onClick={this.handleReset} id="reset" />
         </div>
       </div>
     );
