@@ -84,8 +84,9 @@ class Calculator extends React.Component {
     let disabledInc;
 
     if (
-      this.currentNum <= 0 ||
-      this.state.currentNum - Number(getLocalStoreKey("step")) <
+      Number(getLocalStoreKey("currentNum")) <= 0 ||
+      Number(getLocalStoreKey("currentNum")) -
+        Number(getLocalStoreKey("step")) <
         Number(getLocalStoreKey("minNum"))
     ) {
       disabledDec = true;
@@ -93,7 +94,11 @@ class Calculator extends React.Component {
       disabledDec = false;
     }
 
-    if (this.state.currentNum + this.state.step > getLocalStoreKey("maxNum")) {
+    if (
+      Number(getLocalStoreKey("currentNum")) +
+        Number(getLocalStoreKey("step")) >
+      Number(getLocalStoreKey("maxNum"))
+    ) {
       disabledInc = true;
     } else {
       disabledInc = false;
