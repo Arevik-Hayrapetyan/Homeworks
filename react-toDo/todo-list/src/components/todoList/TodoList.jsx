@@ -1,27 +1,32 @@
 import React from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import setItem from "../../helpers/localStorage";
+import { getItem } from "../../helpers/localStorage";
 
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       inputValue: "",
-      addList: [],
+      toDoList: getItem() === null ? [] : getItem(),
     };
   }
 
   takeInputValue = (event) => {
     this.setState({ inputValue: event.target.value });
   };
+  componentDidUpdate() {
+    setItem(this.state.toDoList);
+  }
 
   handleAdd = (event) => {
     event.preventDefault();
     if (this.state.inputValue !== "") {
       this.setState((prevState) => {
         return {
-          addList: [
-            ...prevState.addList,
+          toDoList: [
+            ...prevState.toDoList,
             {
               id: Math.random(),
               inputText: this.state.inputValue,
@@ -38,13 +43,13 @@ class TodoList extends React.Component {
 
   handleDelete = (item) => {
     this.setState((prevState) => ({
-      addList: prevState.addList.filter((el) => item.id !== el.id),
+      toDoList: prevState.toDoList.filter((el) => item.id !== el.id),
     }));
   };
 
   handleChecked = (item) => {
     this.setState((prevState) => ({
-      addList: prevState.addList.map((todo) =>
+      toDoList: prevState.toDoList.map((todo) =>
         todo.id === item.id ? { ...todo, isChecked: !todo.isChecked } : todo
       ),
     }));
@@ -52,7 +57,7 @@ class TodoList extends React.Component {
 
   handleEdit = (item) => {
     this.setState((prevState) => ({
-      addList: prevState.addList.map((todo) =>
+      toDoList: prevState.toDoList.map((todo) =>
         todo.id === item.id ? { ...todo, isEditMode: !todo.isEditMode } : todo
       ),
     }));
@@ -60,15 +65,15 @@ class TodoList extends React.Component {
 
   handleCheckedAll = () => {
     this.setState((prevState) => ({
-      addList: prevState.addList.map((todo) => {
+      toDoList: prevState.toDoList.map((todo) => {
         return { ...todo, isChecked: true };
       }),
     }));
-    let completeAll = this.state.addList.every((todo) => todo.isChecked);
+    let completeAll = this.state.toDoList.every((todo) => todo.isChecked);
     if (completeAll) {
       this.setState((prevState) => ({
         completeAll: true,
-        addList: prevState.addList.map((todo) => {
+        toDoList: prevState.toDoList.map((todo) => {
           return { ...todo, isChecked: false };
         }),
       }));
@@ -94,8 +99,9 @@ class TodoList extends React.Component {
                 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
           />
         </form>
+
         <div>
-          {this.state.addList.map((item) => (
+          {this.state.toDoList.map((item) => (
             <div className="" key={item.id}>
               {item.isEditMode ? (
                 <Input
