@@ -1,4 +1,6 @@
 import React from "react";
+import Input from "../Input/Input";
+import Button from "../Button/Button";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -40,7 +42,7 @@ class TodoList extends React.Component {
     }));
   };
 
-  handleComplete = (item) => {
+  handleChecked = (item) => {
     this.setState((prevState) => ({
       addList: prevState.addList.map((todo) =>
         todo.id === item.id ? { ...todo, isChecked: !todo.isChecked } : todo
@@ -51,12 +53,12 @@ class TodoList extends React.Component {
   handleEdit = (item) => {
     this.setState((prevState) => ({
       addList: prevState.addList.map((todo) =>
-        todo.id === item.id ? { ...todo, isEditMode: true } : todo
+        todo.id === item.id ? { ...todo, isEditMode: !todo.isEditMode } : todo
       ),
     }));
   };
 
-  handleCompleteAll = () => {
+  handleCheckedAll = () => {
     this.setState((prevState) => ({
       addList: prevState.addList.map((todo) => {
         return { ...todo, isChecked: true };
@@ -78,14 +80,14 @@ class TodoList extends React.Component {
       <div className="">
         <p className="text-4xl">To Do List</p>
         <form onClick={this.handleAdd}>
-          <input
+          <Input
             value={this.state.inputValue}
             onChange={this.takeInputValue}
             type="text"
             className="bg-gray-200 h-10 w-80"
             placeholder="todo list..."
           />
-          <input
+          <Input
             type="submit"
             value="ADD"
             className="
@@ -96,14 +98,14 @@ class TodoList extends React.Component {
           {this.state.addList.map((item) => (
             <div className="" key={item.id}>
               {item.isEditMode ? (
-                <input
-                  value={item.inputText}
-                 
+                <Input
+                  defaultValue={item.inputText}
+                  onChange={this.handleEdit}
                 />
               ) : (
                 <span
                   onClick={() => {
-                    this.handleComplete(item);
+                    this.handleChecked(item);
                   }}
                   className={item.isChecked ? "line-through" : "no-underline"}
                 >
@@ -111,33 +113,31 @@ class TodoList extends React.Component {
                 </span>
               )}
 
-              <button
+              <Button
                 className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
                 onClick={() => {
                   this.handleEdit(item);
                 }}
-              >
-                Edit
-              </button>
-              <button
+                value="Edit"
+              />
+
+              <Button
                 className="
                 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
                 onClick={() => {
                   this.handleDelete(item);
                 }}
-              >
-                Delete
-              </button>
+                value="Delete"
+              />
             </div>
           ))}
         </div>
-        <button
-          onClick={this.handleCompleteAll}
+        <Button
+          onClick={this.handleCheckedAll}
           className="
           bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
-        >
-          Complete All
-        </button>
+          value="Checked All"
+        />
       </div>
     );
   }
