@@ -4,6 +4,35 @@ import Button from "../Button/Button";
 import setItem from "../../helpers/localStorage";
 import { getItem } from "../../helpers/localStorage";
 
+const classNames = require("classnames");
+
+const title = classNames(["text-4xl"]);
+const inputStyle = classNames(["bg-gray-200 ", "h-10", "w-80"]);
+const editButton = classNames([
+  "bg-blue-500",
+  "hover:bg-blue-700",
+  "text-white",
+  "font-bold",
+  "py-2",
+  "px-4",
+  "border",
+  "border-blue-700",
+  "rounded",
+  "ml-20",
+]);
+const buttonsStyle = classNames([
+  "bg-blue-500",
+  "hover:bg-blue-700",
+  "text-white",
+  "font-bold",
+  "py-2",
+  "px-4",
+  "border",
+  "border-blue-700",
+  "rounded",
+]);
+const buttonWrapper = classNames(["inline-block"])
+
 class TodoList extends React.Component {
   constructor(props) {
     super(props);
@@ -83,28 +112,25 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className="">
-        <p className="text-4xl">To Do List</p>
+        <p className={title}>To Do List</p>
         <form onClick={this.handleAdd}>
           <Input
             value={this.state.inputValue}
             onChange={this.takeInputValue}
             type="text"
-            className="bg-gray-200 h-10 w-80"
+            className={inputStyle}
             placeholder="todo list..."
           />
-          <Input
-            type="submit"
-            value="ADD"
-            className="
-                bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
-          />
+          <Input type="submit" value="ADD" className={buttonsStyle} />
         </form>
 
-        <div>
+        <div >
           {this.state.toDoList.map((item) => (
+
             <div className="" key={item.id}>
               {item.isEditMode ? (
-                <Input
+              
+                <Input 
                   defaultValue={item.inputText}
                   onChange={this.handleEdit}
                 />
@@ -117,31 +143,33 @@ class TodoList extends React.Component {
                 >
                   {item.inputText}
                 </span>
+                
               )}
 
-              <Button
-                className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
-                onClick={() => {
-                  this.handleEdit(item);
-                }}
-                value="Edit"
-              />
-
-              <Button
-                className="
-                bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
-                onClick={() => {
-                  this.handleDelete(item);
-                }}
-                value="Delete"
-              />
+              
+              <div className={buttonWrapper} >
+              
+                <Button
+                  className={editButton}
+                  onClick={() => {
+                    this.handleEdit(item);
+                  }}
+                  value="Edit"
+                />
+                <Button
+                  className={buttonsStyle}
+                  onClick={() => {
+                    this.handleDelete(item);
+                  }}
+                  value="Delete"
+                />
+              </div>
             </div>
           ))}
         </div>
         <Button
           onClick={this.handleCheckedAll}
-          className="
-          bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded "
+          className={buttonsStyle}
           value="Checked All"
         />
       </div>
