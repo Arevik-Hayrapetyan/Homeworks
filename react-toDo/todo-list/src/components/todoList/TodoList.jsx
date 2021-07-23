@@ -4,7 +4,10 @@ import Button from "../Button/Button";
 import setItem from "../../helpers/localStorage";
 import { getItem } from "../../helpers/localStorage";
 
+
+
 const classNames = require("classnames");
+
 
 const title = classNames(["text-4xl"]);
 const inputStyle = classNames(["bg-gray-200 ", "h-10", "w-80"]);
@@ -110,6 +113,7 @@ class TodoList extends React.Component {
   };
 
   render() {
+
     return (
       <div className="">
         <p className={title}>To Do List</p>
@@ -146,9 +150,7 @@ class TodoList extends React.Component {
                 
               )}
 
-              
               <div className={buttonWrapper} >
-              
                 <Button
                   className={editButton}
                   onClick={() => {
@@ -175,5 +177,8 @@ class TodoList extends React.Component {
       </div>
     );
   }
+}
+TodoList.prototype = {
+
 }
 export default TodoList;

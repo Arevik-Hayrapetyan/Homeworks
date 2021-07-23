@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 function Button({ className, onClick, value }) {
   return (
     <>
@@ -9,3 +11,9 @@ function Button({ className, onClick, value }) {
 }
 
 export default Button;
+
+Button.propTypes = {
+className: PropTypes.string,
+onClick: PropTypes.func,
+value: PropTypes.string
+}
